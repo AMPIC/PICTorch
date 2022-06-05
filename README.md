@@ -75,8 +75,6 @@ deep-learning framework PyTorch."_ Scientific reports 9.1 (2019): 5918.
 
 
 ## Things To Do
-Add netlist based simulation capability and use a GUI program to generate netlists from schematics.
-Enable co-integration with ngspice or similar tool for co-simulation with electronics.
 Create a generic PDK file for SiP processes.
 
 
