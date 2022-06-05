@@ -67,7 +67,7 @@ class RingResonator4(pt.Network):
 
 
 ###############################################################################
-## 2nd Order APF-type Filter 
+## Nth-Order APF-type Filter 
 ###############################################################################
 class APF(pt.Network):
     r""" This filter uses APF type topology with n pair of rings: 
@@ -163,13 +163,13 @@ neff        = PDK.Si_WG1.NEFF # effective index
 loss        = PDK.Si_WG1.LOSS # dB/cm
 
 wl0         = 1.55e-6
-num_rings   = 2 # Two pair of rings
+num_rings   = 1 # Two pair of rings
 ring_length = 2200e-6 #[m]
-kappa       = np.array([0.3461, 0.1223]) # Coupling coefficients
-phi         = np.array([-0.1732, 0.3503]) # Phase shifts in the rings
+kappa       = np.array([0.4385]) # Coupling coefficients
+phi         = np.array([0.2969]) # Phase shifts in the rings
 kappa_drop  = 1/100 # 1% monitor tap
 MZ_length   = 100e-6
-beta        = 1.58
+beta        = -1.6137
 
 # Simualation Parameters
 GHz = 1e9
@@ -216,8 +216,6 @@ cross = sip.dB10(det[0,:,det_list.index('cross'),0])
 
 mon_top0  = sip.dB10(det[0,:,det_list.index('mon_top0'),0])
 mon_bot0  = sip.dB10(det[0,:,det_list.index('mon_bot0'),0])
-mon_top1  = sip.dB10(det[0,:,det_list.index('mon_top1'),0])
-mon_bot1  = sip.dB10(det[0,:,det_list.index('mon_bot1'),0])
 
 
 fig1 = plt.figure()
@@ -229,19 +227,17 @@ plt.plot((f-fc)/GHz, cross, label='cross', color='gray')
 
 plt.plot((f-fc)/GHz, mon_top0, label='mon_top0')
 plt.plot((f-fc)/GHz, mon_bot0, label='mon_bot0')
-plt.plot((f-fc)/GHz, mon_top1, label='mon_top1')
-plt.plot((f-fc)/GHz, mon_bot1, label='mon_bot1')
 
-ymin = -80
+ymin = -50
 ymax = 0
 plt.grid(color='0.95')
-#plt.axis([fmin, fmax, ymin, ymax])
+plt.axis([fmin, fmax, ymin, ymax])
 plt.ylabel('Transmission, dB')
 plt.xlabel('frequency offset, GHz')
 plt.legend(loc='lower right')
 
 plt.legend(loc=1)
-plt.savefig('filter_APD4_sim.png')
+plt.savefig('filter_APD2_sim.png')
 plt.show()
 
 ###############################################################################

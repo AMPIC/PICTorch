@@ -120,9 +120,9 @@ class APF2(pt.Network):
 
 # Define constants
 c       =   constants.C # speed of light
-ng      =   PDK.WG1_NG # group index
-neff    =   PDK.WG1_NEFF # effective index
-loss    =   PDK.WG1_LOSS # dB/cm
+ng      =   PDK.Si_WG1.NG # group index
+neff    =   PDK.Si_WG1.NEFF # effective index
+loss    =   PDK.Si_WG1.LOSS # dB/cm
 wl0     =   1550e-9
 
 

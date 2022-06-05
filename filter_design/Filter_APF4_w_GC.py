@@ -67,7 +67,7 @@ class RingResonator4(pt.Network):
 
 
 ###############################################################################
-## 2nd Order APF-type Filter 
+## 4th-Order APD-based Filter 
 ###############################################################################
 class APF(pt.Network):
     r""" This filter uses APF type topology with n pair of rings: 
@@ -132,17 +132,28 @@ class APF(pt.Network):
                     ) # Bottom monitor port                
             # end for i 
             
+
+            self.gc_in = self.gc_in2 = self.gc_bar = self.gc_cross = pt.GratingCoupler(
+                    R       = PDK.GC1.REFLECTION,
+                    R_in    = PDK.GC1.IN_REFLECTION,
+                    Tmax    = PDK.GC1.PEAK_TRANSMISSION,
+                    bandwidth = PDK.GC1.BANDWIDTH,
+                    wl0       = PDK.GC1.CENTER_WAVELENGTH,
+                ) 
+            
+            
             # Define the links      
-            link1   = ["source:0", '0:cp1:1', '0:wg_top:1']
-            link2   = ["in2:0", '3:cp1:2', '0:wg_bot:1']            
+            link1   = ["source:0", '0:gc_in:1', '0:cp1:1', '0:wg_top:1']
+            link2   = ["in2:0", '0:gc_in2:1', '3:cp1:2', '0:wg_bot:1']          
+            
             # Create the top and bottom arm rings
             for i in range(self.num_rings):                
                 link1   += ["0:RR_top%i:1"%i]
                 link2   += ["0:RR_bot%i:1"%i]
             # end for i     
             
-            link1   +=  ['0:cp2:1', '0:cross']
-            link2   +=  ['3:cp2:2', '0:bar']
+            link1   +=  ['0:cp2:1', '1:gc_bar:0', '0:cross']
+            link2   +=  ['3:cp2:2', '1:gc_cross:0', '0:bar']
             self.link(*link1)
             self.link(*link2)                
             
@@ -158,9 +169,9 @@ print(torch.where(APF().free_ports_at)[0])
 ## Simulation Testbench
 ###############################################################################
 c           = constants.C # speed of light
-ng          = PDK.Si_WG1.NG # group index
-neff        = PDK.Si_WG1.NEFF # effective index
-loss        = PDK.Si_WG1.LOSS # dB/cm
+ng      =   PDK.Si_WG1.NG # group index
+neff    =   PDK.Si_WG1.NEFF # effective index
+loss    =   PDK.Si_WG1.LOSS # dB/cm
 
 wl0         = 1.55e-6
 num_rings   = 2 # Two pair of rings
@@ -241,7 +252,7 @@ plt.xlabel('frequency offset, GHz')
 plt.legend(loc='lower right')
 
 plt.legend(loc=1)
-plt.savefig('filter_APD4_sim.png')
+plt.savefig('filter_APD4_w_GC_sim.png')
 plt.show()
 
 ###############################################################################
