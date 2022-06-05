@@ -65,12 +65,20 @@ Read the full documentation here: [https://docs.photontorch.com](https://docs.ph
 
 ## Reference
 
-If you're using Photontorch in your work or feel in any way inspired by it,
-we ask you to cite us in your work:
+If you're using PICTorch fork of Photontorch for your research, product development work or otherwise, we ask you to cite the following two in your work:
 
-Floris Laporte, Joni Dambre, and Peter Bienstman. _"Highly parallel simulation
+1. Floris Laporte, Joni Dambre, and Peter Bienstman. _"Highly parallel simulation
 and optimization of photonic circuits in time and frequency domain based on the
 deep-learning framework PyTorch."_ Scientific reports 9.1 (2019): 5918.
+
+2. V. Saxena, “PICTorch: Photonic Integrated Circuit Simulator,” 2022. [Online]. Available: https://github.com/AMPIC/PICTorch
+
+
+## Things To Do
+Add netlist based simulation capability and use a GUI program to generate netlists from schematics.
+Enable co-integration with ngspice or similar tool for co-simulation with electronics.
+Create a generic PDK file for SiP processes.
+
 
 ## Known issues
 
