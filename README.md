@@ -1,6 +1,6 @@
 # PICTorch
 
-PICTorch is a fork of the Photontorch simulator to enable free and open-source simulation of silicon photonic integrated circuits (PICs). The code extensions contains a set of libraries of components and process primitives which can be customized to any foundry process. 
+PICTorch is a fork of the Photontorch simulator to enable free, open-source and rapid simulation of silicon photonic integrated circuits (PICs). The code extensions contains a set of libraries of components and process primitives which can be customized to any foundry process. 
 
 - Vishal Saxena [vsaxena@udel.edu]
 
