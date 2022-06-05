@@ -195,7 +195,7 @@ plt.ylabel('Transmission, dB')
 plt.xlabel('frequency offset, GHz')
 
 plt.legend(loc=1)
-plt.savefig('filter_APD2_sim.png')
+plt.savefig('filter_APD2_JLT_sim.png')
 plt.show()
 
 
