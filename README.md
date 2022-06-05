@@ -65,7 +65,7 @@ Read the full documentation here: [https://docs.photontorch.com](https://docs.ph
 
 ## Reference
 
-If you're using PICTorch fork of Photontorch for your research, product development work or otherwise, we ask you to cite the following two in your work:
+If you're using PICTorch fork of Photontorch for your research, product development work or otherwise, we ask you to cite the following two references in your work:
 
 1. Floris Laporte, Joni Dambre, and Peter Bienstman. _"Highly parallel simulation
 and optimization of photonic circuits in time and frequency domain based on the
