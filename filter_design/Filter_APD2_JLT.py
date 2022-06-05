@@ -192,7 +192,7 @@ ymin = -40
 ymax = 0
 plt.axis([fmin, fmax, ymin, ymax])
 plt.ylabel('Transmission, dB')
-plt.xlabel('frequency offset, GHz')
+plt.xlabel('frequency offset, GHz') 
 
 plt.legend(loc=1)
 plt.savefig('filter_APD2_JLT_sim.png')
